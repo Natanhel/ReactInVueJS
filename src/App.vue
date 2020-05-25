@@ -7,7 +7,7 @@
 
 <script>
 import { ReactWrapper } from 'vuera'
-import MyReactComponent from '@/components/GameDiceReact'
+import MyReactComponent from '@/components/ReactComponent'
 
 export default {
   name: 'App',
