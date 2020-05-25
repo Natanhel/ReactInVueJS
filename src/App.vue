@@ -1,32 +1,37 @@
 <template>
   <div id="app">
-    <game-dice :value="value"/>
-    <button @click="rerollDice" class="btn">reroll dice</button>
-    <button @click="resetDice" class="btn">reset dice</button>
+    <react :component="component" :greeting="greeting" :fatherText="fatherText" :event="AlertBtnFromFather"/>
+    <p>{{text}}</p>
   </div>
 </template>
 
 <script>
-import GameDice from '@/components/GameDice.vue';
+import { ReactWrapper } from 'vuera'
+import MyReactComponent from '@/components/GameDiceReact'
 
 export default {
   name: 'App',
   components: {
-    GameDice
+    react: ReactWrapper
   },
   data () {
     return {
-      value: undefined
+      greeting: 'This is an example on using React as a Vues\' child',
+      fatherText: 'This is a text from the Father component App',
+      component: MyReactComponent,
+      text: ''
     }
   },
   methods: {
-    rerollDice() {
-      this.value = 1 + Math.floor(Math.random() * 6)
-    },
-    resetDice(){
-      this.value = undefined
+    AlertBtnFromFather(){
+      // alert('This is a text from the Father component App passed by ')
+      if (this.text === '') {
+        this.text = 'Father - Vue'
+      } else {
+        this.text = ''
+      }
     }
-  },
+  }
 }
 </script>
 
@@ -41,8 +46,4 @@ export default {
   margin-top: 60px;
 }
 
-.btn{
-  max-width: 100px;
-  justify-self: center;
-}
 </style>
