@@ -24,7 +24,6 @@ export default {
   },
   methods: {
     AlertBtnFromFather(){
-      // alert('This is a text from the Father component App passed by ')
       if (this.text === '') {
         this.text = 'Father - Vue'
       } else {
